@@ -1,4 +1,4 @@
-from pydantic import BaseModel,EmailStr
+from pydantic import BaseModel, ConfigDict,EmailStr
 
 class LoginRequest(BaseModel):
     username : str
@@ -12,7 +12,14 @@ class RegisterRequest(BaseModel):
     email : EmailStr
     password : str
 
-# class User(LoginRequest):
+class UserOut(BaseModel):
+    id: int
+    username: str
+    first_name: str
+    last_name: str | None
+    email: EmailStr
+
+    model_config = ConfigDict(from_attributes=True)   
 
 class CropPredictionRequest(BaseModel):
     nitrogen: float

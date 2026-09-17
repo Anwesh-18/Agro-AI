@@ -1,3 +1,9 @@
 fastapi[all]
 asyncpg
 python-jose[cryptography]
+bcrypt
+
+# for ml model
+pandas
+numpy
+scikit-learn
